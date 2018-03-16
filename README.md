@@ -3,3 +3,4 @@ KAIST CAPSTONE PROJECT
 
 # Member
 * Hayanmind
+* JIHUN YEO
