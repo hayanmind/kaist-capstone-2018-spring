@@ -2,6 +2,6 @@
 KAIST CAPSTONE PROJECT
 
 # Member
-* Hayanmind
+* [Jeungmin Oh](@ohtangza) (HayanMind Inc.)
 * JIHUN YEO
 * Lim, Changjun
