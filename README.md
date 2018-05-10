@@ -2,6 +2,11 @@
 KAIST CAPSTONE PROJECT
 
 # Member
-* Hayanmind
-* JIHUN YEO
-* Lim, Changjun
+* KAIST
+  * Lee ChulMin (@2lcm)
+  * Jihun Yeo
+  * Lim, Changjun
+
+* Hayanmind (@hayanmind)
+  * Jeungmin Oh (@ohtangza)
+  * Daehoon Kim (@ghsdh3409)
