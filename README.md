@@ -1,13 +1,13 @@
-# detect-filler-sound
-KAIST CAPSTONE PROJECT
+# Purpose
+KAIST Capstone Project 2018 (Strping)
 
 # Member
 * KAIST
-  * ChulMin Lee (@2lcm)
+  * [ChulMin Lee](@2lcm)
   * Jihun Yeo
   * Changjun Lim
   * Wooseong
   
-* Hayanmind (@hayanmind)
-  * Jeungmin Oh (@ohtangza)
-  * Daehoon Kim (@ghsdh3409)
+* HayanMind Inc.
+  * [Jeungmin Oh](@ohtangza)
+  * [Daehoon Kim](@ghsdh3409)
