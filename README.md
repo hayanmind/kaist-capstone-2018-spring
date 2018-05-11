@@ -1,5 +1,5 @@
 # Purpose
-KAIST Capstone Project 2018 (Strping)
+KAIST Capstone Project 2018 (Spring)
 
 # Member
 * KAIST
