@@ -46,7 +46,7 @@ export class AppContainer extends Component {
         {
           this.state.asrResult == null
             ? ''
-            : this.state.asrResult.results[0].alternatives[0].transcript
+            : this.state.asrResult
         }
       </div>
     );

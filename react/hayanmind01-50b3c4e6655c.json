@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "crypto-truck-203407",
+  "private_key_id": "50b3c4e6655cd2dbf1c774275d60bc8fc10ada22",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDuMnlEAMzqm2rQ\naHavF7U5i3VznZlb0jzVRI+X9DiiJlZhWyRwt37sl22+b+KdyJPYwl9wyLoGNuXy\nACUgh3xB8I/CWAM5UBHIezvqa9zfjJr+FLnJknMjjkQIx+ySAlmjQ/0xmZFPFjn5\njQGZWcKwmJ8I2DrFeEoO1dhqUTVZpKSIHRSyk6hfGCMT8L9Us+KGXlUPGKsxjp36\nK8dvQeJiX1w9PTqQwKLg80fESQORJDWuM+vEbqNPek1BtD7qo7DQyCgjlZQzVkIi\nBi8evHeMvTa2lMEiy4L4RwxCGHQY1h9gyyzI4ig6TrfoW/loaCAxhG75ZNgHd5G8\nMRPZ8kLJAgMBAAECggEABB4xRICzCjdHoHS94IcLZgRIMoh99z1qOdGmndzmAb+h\n7KrztVMmyZZQmmM6yrmF/NBXcA64UJUwYn+oJKjS+Bzdj2GQJLSCqjGfNo1I00CO\nCWh4UcjLXsj92h0CtP9/Zzgsr2fVQEXFGNBcP7dyizUIQtHiKjnLJfiCdkwTHQqY\nF7Kg4wWAZ76huy6CfcM4hEm+WgvP2e1FkBhwS66CHhHO90NqX0ElCQGm0K9ntYCZ\n9wWKOTPMDAp86sPdzd5C1cEVsumIfR8ma5YiOxscjaUaZNGT0UJABiuNlSXaUucQ\nw2fLIeZTTIOzh3xJVEAy4x72U+n2Eq4mhIrgvp0pNQKBgQD5UVY+Gvn20Mc/dJnY\noXdzRlDdZTkXg9LCTYgmrR40J40eo1O7EsB1MFsf8Ln//6iBL4iSHFPrQaxabFdX\nDb7ToDZDz6VWAqefQkCR0914206GWZZ3U0XTUslMviy3jU8DkC3YkWicWkbOfJqb\nNM90LkoqthUixDFlHgfxRCheUwKBgQD0lNWeaPeXhCPRXNsntj0Mnx5E32LgVZYD\nlZeQdn2nUhxYBWCnyR/4yJ2eX5jd2xKIhRuXZh9oVKGsDeYnahjmOWZoSFzVbYtE\nCP7SHD+NUmK0crDev3bvfrk6f8Fgo53Hbfme2WBr05qK7p8QzkCFTZlKKmRFuZ7t\na+kgcMEe8wKBgQCowW1mzEu1zMuRIBOilmiMFmRV91YVnJzj+CbYRwXSt5LF0jey\nwJaUvA5yKDc+GIauKsZ+X75N1z4aVosn2Z35ENCqRbrb5SAgpG+gRY/7ZjZYqfs2\n+Z6h0799upv6AiQhfU4K8SGl81VKHv1nYO+q7Eo3btgPmEz27MTjggbxEQKBgFXz\nY+rKapAlkMzHfADFq0ifNmzvr/i0OwbBcEUFTv0Y/vrz0NbF+GVeYv3ADKGSlj3B\nwUOAUPNCIpqrO8GIKH3nmBR3saATYgijvKEr6i2I0UUmtP9ie7KIbyGeud9zQERQ\nYpOvQpJCB6JhXybxxHzUG1WT9i8Gn1JCROfwl/1/AoGAZyyNLwnyvvwpo612qW+l\nqVNQFggBJUVicardu3KbGduZZbngRLYSnm1axO3llU6ePOZZnB3ow/wrh/LEoUtg\nFSshvyWSYz2eAMJjqC9SAYymo63oYTlr1RZnCM4/CaV3KDIpWfjXTu0QXdZ7Klgm\nn3/ZDDy894YNu8QYIKJem3E=\n-----END PRIVATE KEY-----\n",
+  "client_email": "capstone@crypto-truck-203407.iam.gserviceaccount.com",
+  "client_id": "116942006456841429709",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/capstone%40crypto-truck-203407.iam.gserviceaccount.com"
+}
