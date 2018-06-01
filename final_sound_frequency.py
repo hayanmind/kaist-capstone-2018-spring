@@ -1,7 +1,11 @@
 import librosa
 import json
 
+<<<<<<< HEAD
 y, sr = librosa.load("C:/Users/stk14/OneDrive/바탕 화면/speech.3gp")
+=======
+y, sr = librosa.load("C:/Users/stk14/OneDrive/바탕 화면/cc.3gp")
+>>>>>>> 1c7b79c... Add files via upload
 D = librosa.stft(y)
 
 ####################################################################################
@@ -32,6 +36,10 @@ for f in sel_f:
     if f != 0.0:
         sel_sel_f.append(f)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1c7b79c... Add files via upload
 L = len(sel_sel_f)
 gross_sum = 0
 for f in sel_sel_f:
@@ -56,8 +64,42 @@ for i in t:
     t[i] = t[i]*512/sr
 
 ###################
+<<<<<<< HEAD
 # derivative of frequency #
 
+=======
+# transient frequency change with min, max #
+temp_f = []
+temp_n = []
+temp_f_comp = []
+temp_n_comp = []
+for i in range(n):
+    if sel_f[i] != 0.0:
+        temp_f_comp.append(sel_f[i])
+        temp_n_comp.append(i)
+    elif i == 1:
+        continue
+    elif sel_f[i] == 0.0 and sel_f[i-1] != 0.0:
+        temp_f.append(temp_f_comp)
+        temp_n.append(temp_n_comp)
+        temp_f_comp = []
+        temp_n_comp = []
+    else:
+        continue
+
+temp_change_f = []
+for f_comp in temp_f:
+    max_f = max(f_comp)
+    min_f = min(f_comp)
+    if max_f == min_f:
+        temp_change_f.append(0)
+    else:
+        temp_change_f.append(abs((max_f-min_f)/(f_comp.index(max_f)-f_comp.index(min_f))))
+
+temp_t = []
+for temp_n_comp in temp_n:
+    temp_t.append(((temp_n_comp[-1] + temp_n_comp[0])//2)*512/sr)
+>>>>>>> 1c7b79c... Add files via upload
 
 ###################
 # 20s cut + average & std deviation #
@@ -101,5 +143,11 @@ t_domain = json.dumps(t)
 f_avg_entire = json.dumps(avg_f)
 f_std_dev_entire = json.dumps(std_dev)
 
+<<<<<<< HEAD
+=======
+f_change_temp = json.dumps(temp_change_f)
+t_f_change_temp = json.dumps(temp_t)
+
+>>>>>>> 1c7b79c... Add files via upload
 f_avg_cut = json.dumps(f_cut_avg)
 f_std_dev_cut = json.dumps(f_cut_std_dev)
