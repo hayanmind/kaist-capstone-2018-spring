@@ -7,8 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import { loadApp } from 'actions/app';
 
-
-
 type Props = {
   dispatch: () => void,
   loaded: boolean
@@ -43,12 +41,11 @@ export class AppContainer extends Component {
          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
          crossorigin="anonymous"></script>
         &nbsp; &nbsp; &nbsp; &nbsp;
+        <h1 className={styles.headline}>발표 피드백 플랫폼</h1>
         <p></p> &nbsp; &nbsp; &nbsp; &nbsp;
         <button 
           type="button" 
           class="btn btn-primary buttons"
-          position="relative"
-          left="30px"
           onClick={() => {
             axios.get('/api/speech-to-text').then((response) => {
               const data = response.data;
@@ -76,9 +73,13 @@ export class AppContainer extends Component {
         <span class="badge badge-pill badge-danger">데시벨 큰 구간</span>
         <h3 className={styles.recommend}>추천 동영상</h3>
         <p></p>
-        <iframe className={styles.video} 
-          src="https://www.youtube.com/embed/hoRfsTvnpWM" 
-          frameborder="0" allowfullscreen></iframe>
+        {
+          this.state.asrResult == null
+            ? ''
+            : <iframe className={styles.video} 
+              src="https://www.youtube.com/embed/hoRfsTvnpWM" 
+              frameborder="0" allowfullscreen></iframe>
+        }
       </div>
     );
   }

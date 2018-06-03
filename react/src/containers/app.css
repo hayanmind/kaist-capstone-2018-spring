@@ -2,7 +2,11 @@
   background-color: wheat;
   height: 700px;
   width: 100%;
-  
+}
+.headline {
+  color: gray;
+  position: relative;
+  left: 30px;
 }
 .content {
   border: 1px solid black;
