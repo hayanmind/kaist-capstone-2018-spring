@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import { loadApp } from 'actions/app';
 
+
 type Props = {
   dispatch: () => void,
   loaded: boolean
