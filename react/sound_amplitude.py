@@ -91,6 +91,8 @@ def extract(y, sr):
         for a in rms_cut[i]:
             if a != 0.0:
                 sel_rms_cut_n.append(a)
+        if(sel_rms_cut_n) == 0:
+            continues
         sel_rms_cut.append(sel_rms_cut_n)
 
     a_cut_avg = []

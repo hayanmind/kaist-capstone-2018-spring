@@ -37,9 +37,18 @@ app.get('/speech-to-text', (req, res) => {
     const wcount = res.words.length; //The number of words in a transcript
     let transcript = {transcript: res.transcript, words:[]};
     for(var j=0; j<wcount; j++) {
-      let word = {word:res.words[j].word, attribute:'default'};
-      Object.assign(word, get_time(res.words[j]));
-      transcript.words.push(word);
+      let word = res.words[j].word;
+      if (word != '가' && word!='이' && word!='은' && word!='는' && word != '을' && word != '를' && word != '에게' && word != '에' && word != '입니다' && word != '만'){
+        word = ' ' + word;
+      }
+      const last = word.slice(-2);
+      if (last == '니다' || last == '어요' || last == '') {
+        word = word + '.';
+      }
+      if (last == '니까') {  word = word + '?'; }
+      let word_object = {word:word, attribute:'default'};
+      Object.assign(word_object, get_time(res.words[j]));
+      transcript.words.push(word_object);
     }
     result.push(transcript);
   }
