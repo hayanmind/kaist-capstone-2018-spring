@@ -42,6 +42,10 @@
   left: 900px;
 }
 .defaultWord {
+  color:rgb(7, 7, 7);
+  display:inline;
+}
+.fastWord {
   color:peru;
   display:inline;
 }

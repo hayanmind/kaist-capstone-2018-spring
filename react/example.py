@@ -3,12 +3,13 @@ import librosa
 import sound_amplitude
 import sound_frequency
 
-y, sr = librosa.load("C:/Users/ailur_000/Desktop/talk1_changjun.wma")
+y, sr = librosa.load("C:/Users/ailur_000/Desktop/w_speech.3gp")
 message_amp = sound_amplitude.extract(y, sr)
 message_freq = sound_frequency.extract(y, sr)
 message_amp.update(message_freq)
 message_dump = json.dumps(message_amp)
 
+# print(message_dump)
 z_count = 0
 is_zero = False
 for idx, val in enumerate(message_amp['amp']):

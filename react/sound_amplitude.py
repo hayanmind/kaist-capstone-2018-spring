@@ -2,7 +2,7 @@ import librosa
 import json
 
 def extract(y, sr):
-    S, phase = librosa.magphase(librosa.stft(y))
+    S, _phase = librosa.magphase(librosa.stft(y))
 
     ####################################################################################
     # extract rms of sound #
@@ -36,7 +36,7 @@ def extract(y, sr):
     avg_a = gross_sum/L_sel
 
     squ_sum = 0
-    for f in sel_A:
+    for _ in sel_A:
         squ_sum = squ_sum + (a - avg_a)**2
 
     std_dev = (squ_sum/L_sel)**0.5
@@ -51,15 +51,17 @@ def extract(y, sr):
         if rms[i] != 0.0:
             temp_a_comp.append(rms[i])
             temp_n_comp.append(i)
-        elif i == 1:
-            continue
+        elif i == 0:
+            if rms[0] != 0.0:
+                temp_a_comp.append(rms[i])
+                temp_n_comp.append(i)
+            else:
+                continue
         elif rms[i] == 0.0 and rms[i-1] != 0.0:
             temp_a.append(temp_a_comp)
             temp_n.append(temp_n_comp)
             temp_a_comp = []
             temp_n_comp = []
-        else:
-            continue
 
     temp_change_a = []
     for a_comp in temp_a:
@@ -76,8 +78,7 @@ def extract(y, sr):
 
     ###################
     # 20s cut + average & std deviation #
-    interval = 20
-    dn = int((interval*sr/512)//1)
+    dn = int((20*sr/512)//1)
     n_cut = int(L//dn) + 1
 
     rms_cut = []
@@ -91,8 +92,8 @@ def extract(y, sr):
         for a in rms_cut[i]:
             if a != 0.0:
                 sel_rms_cut_n.append(a)
-        if(sel_rms_cut_n) == 0:
-            continues
+        if len(sel_rms_cut_n) == 0:
+            continue
         sel_rms_cut.append(sel_rms_cut_n)
 
     a_cut_avg = []

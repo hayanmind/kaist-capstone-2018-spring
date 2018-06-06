@@ -2,15 +2,16 @@ import librosa
 import json
 
 def extract(y, sr):
-
     D = librosa.stft(y)
 
     ####################################################################################
     # extract frequency #
+    filter_property1 = 4
+
     sel_f = []
     for i in range(len(D[0])):
         for j in range(len(D)):
-            if abs(D[j][i]) <= 10:
+            if abs(D[j][i]) <= filter_property1:
                 D[j][i] = 0
 
     for i in range(len(D[0])):
@@ -27,7 +28,33 @@ def extract(y, sr):
         sel_f.append((f_max+f_min)/2*11025/1024)
 
     ###################
-    # frequency correction & entire time frequency average and standard deviation #
+    # frequency filter & entire time frequency average and standard deviation #
+    filter_property2 = 4
+    filtering_num = 2
+
+    for _ in range(filtering_num):
+        sel_sel_f = []
+        for f in sel_f:
+            if f != 0.0:
+                sel_sel_f.append(f)
+
+        L = len(sel_sel_f)
+        gross_sum = 0
+        for f in sel_sel_f:
+            gross_sum = gross_sum + f
+        avg_f = gross_sum / L
+
+        squ_sum = 0
+        for f in sel_sel_f:
+            squ_sum = squ_sum + (f - avg_f) ** 2
+
+        std_dev = (squ_sum / L) ** 0.5
+
+        n = len(sel_f)
+        for i in range(n):
+            if (avg_f - std_dev * filter_property2 > sel_f[i]) or (avg_f + std_dev * filter_property2 < sel_f[i]):
+                sel_f[i] = 0
+
     sel_sel_f = []
     for f in sel_f:
         if f != 0.0:
@@ -45,12 +72,6 @@ def extract(y, sr):
         squ_sum = squ_sum + (f - avg_f)**2
 
     std_dev = (squ_sum/L)**0.5
-
-    n = len(sel_f)
-    for i in range(n):
-        if (avg_f - std_dev * 7 > sel_f[i]) or (avg_f + std_dev * 7 < sel_f[i]):
-            sel_f[i] = 0
-
     ###################
     # time domain #
     t = list(range(n))
@@ -67,8 +88,12 @@ def extract(y, sr):
         if sel_f[i] != 0.0:
             temp_f_comp.append(sel_f[i])
             temp_n_comp.append(i)
-        elif i == 1:
-            continue
+        elif i == 0:
+            if sel_f[0] != 0.0:
+                temp_f_comp.append(sel_f[i])
+                temp_n_comp.append(i)
+            else:
+                continue
         elif sel_f[i] == 0.0 and sel_f[i-1] != 0.0:
             temp_f.append(temp_f_comp)
             temp_n.append(temp_n_comp)
@@ -92,8 +117,7 @@ def extract(y, sr):
 
     ###################
     # 20s cut + average & std deviation #
-    interval = 20
-    dn = int((interval*sr/512)//1)
+    dn = int((20*sr/512)//1)
     n_cut = int(n//dn) + 1
 
     sel_f_cut = []
@@ -107,6 +131,8 @@ def extract(y, sr):
         for f in sel_f_cut[i]:
             if f != 0.0:
                 sel_sel_f_cut_n.append(f)
+        if len(sel_sel_f_cut_n) == 0:
+            continue
         sel_sel_f_cut.append(sel_sel_f_cut_n)
 
     f_cut_avg = []

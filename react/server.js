@@ -37,17 +37,17 @@ app.get('/speech-to-text', (req, res) => {
     const wcount = res.words.length; //The number of words in a transcript
     let transcript = {transcript: res.transcript, words:[]};
     for(var j=0; j<wcount; j++) {
-      let word = res.words[j].word;
-      if (word != '가' && word!='이' && word!='은' && word!='는' && word != '을' && word != '를' && word != '에게' && word != '에' && word != '입니다' && word != '만'){
-        word = ' ' + word;
+      let words = res.words[j];
+      let word = words.word;
+      let attr = 'default';
+      let word_object = {word:word, attribute:attr};
+      Object.assign(word_object, get_time(words));
+      if (word_object.lps > 8){
+        word_object.attribute = 'fast';
       }
-      const last = word.slice(-2);
-      if (last == '니다' || last == '어요' || last == '') {
-        word = word + '.';
-      }
-      if (last == '니까') {  word = word + '?'; }
-      let word_object = {word:word, attribute:'default'};
-      Object.assign(word_object, get_time(res.words[j]));
+
+      word_object.word = add_symbol(word);
+
       transcript.words.push(word_object);
     }
     result.push(transcript);
@@ -85,15 +85,26 @@ app.listen(port, (error) => {
 });
 
 // calculate startTime and endTime and LPS from word
-function get_time(word) {
+function get_time(words) {
   var get_seconds = (time) => {
     return time.hasOwnProperty("seconds") ? Number(time.seconds) : 0;
   };
   var get_nanos = (time) => {
     return time.hasOwnProperty("nanos") ? Number(time.nanos)/1000000000 : 0;
   };
-  const start = get_seconds(word.startTime) + get_nanos(word.startTime);
-  const end = get_seconds(word.endTime) + get_nanos(word.endTime);
-  const lps=(word.length)/(end-start) // the number of letters per second
+  const start = get_seconds(words.startTime) + get_nanos(words.startTime);
+  const end = get_seconds(words.endTime) + get_nanos(words.endTime);
+  const lps=(words.word.length)/(end-start) // the number of letters per second
   return {startTime: start, endTime: end, lps: lps};
+}
+
+function add_symbol(word) {
+  if (word != '가' && word!='이' && word!='은' && word!='는' && word != '을' && word != '를' && word != '에게' && word != '에' && word != '입니다' && word != '만'){
+    return ' ' + word;
+  }
+  const last = word.slice(-2);
+  if (last == '니다' || last == '어요' || last == '') {
+    return word + '.';
+  }
+  if (last == '니까') {  return word + '?'; }
 }

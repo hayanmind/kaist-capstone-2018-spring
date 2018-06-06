@@ -60,7 +60,8 @@ export class AppContainer extends Component {
         <p> </p>
         <div className={styles.content}>
         {
-          this.state.asrResult == null?''
+          //JSON.stringify(this.state.asrResult)
+          /**/this.state.asrResult == null?''
           :this.state.asrResult.map((trans)=>{
             return (<p> {
               trans.words.map((word)=>{
@@ -106,6 +107,9 @@ class Word extends Component {
     switch(attr) {
       case 'default':
         return (<p className={styles.defaultWord}><b>{word}</b></p>);
+        break;
+      case 'fast':
+        return (<p className={styles.fastWord}><b>{word}</b></p>);
         break;
     }
   }
