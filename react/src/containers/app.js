@@ -36,10 +36,10 @@ export class AppContainer extends Component {
         <link rel="stylesheet" 
          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
-         crossorigin="anonymous"/>
+         crossOrigin="anonymous"/>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-         crossorigin="anonymous"></script>
+         crossOrigin="anonymous"></script>
         &nbsp; &nbsp; &nbsp; &nbsp;
         <h1 className={styles.headline}>발표 피드백 플랫폼</h1>
         <p></p> &nbsp; &nbsp; &nbsp; &nbsp;
@@ -84,7 +84,7 @@ export class AppContainer extends Component {
             ? ''
             : <iframe className={styles.video} 
               src="https://www.youtube.com/embed/hoRfsTvnpWM" 
-              frameborder="0" allowfullscreen></iframe>
+              frameBorder="0" allowfullscreen></iframe>
         }
       </div>
     );
