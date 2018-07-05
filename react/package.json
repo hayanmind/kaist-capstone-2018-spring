@@ -54,7 +54,7 @@
     "webpack-dev-server": "2.9.1"
   },
   "dependencies": {
-    "@google-cloud/speech": "^1.5.0",
+    "@google-cloud/speech": "1.5.0",
     "axios": "^0.18.0",
     "babel": "^6.23.0",
     "babel-cli": "6.26.0",

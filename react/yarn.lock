@@ -78,7 +78,7 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@google-cloud/speech@^1.5.0":
+"@google-cloud/speech@1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@google-cloud/speech/-/speech-1.5.0.tgz#6a37cc9344f1eaff3e96c173d158de10269dbe37"
   dependencies:
